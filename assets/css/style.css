@@ -1,0 +1,9 @@
+body{
+    margin: 0 auto;
+    width: 80%;
+}
+
+.category,.thread-title{
+    display: block;
+    margin-bottom: 1em;
+}

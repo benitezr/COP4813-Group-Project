@@ -1,0 +1,23 @@
+CREATE TABLE Categories
+(
+categoryID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+categoryName varchar(255),
+categoryDesc varchar(255)
+);
+
+CREATE TABLE Threads
+(
+threadID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+categoryID int,
+threadTitle varchar(255),
+threadContent varchar(255),
+CONSTRAINT fk_CategoryThread FOREIGN KEY (categoryID) REFERENCES Categories(categoryID)
+);
+
+CREATE TABLE Comments
+(
+commentID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+threadID int,
+commentContent varchar(255),
+CONSTRAINT fk_ThreadComment FOREIGN KEY (threadID) REFERENCES Threads(threadID)
+);

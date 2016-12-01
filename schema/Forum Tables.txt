@@ -21,3 +21,9 @@ threadID int,
 commentContent varchar(255),
 CONSTRAINT fk_ThreadComment FOREIGN KEY (threadID) REFERENCES Threads(threadID)
 );
+
+INSERT INTO Categories (categoryName, categoryDesc)
+VALUES ('Category1','Testing Category1 description');
+
+INSERT INTO Threads (categoryID, threadTitle, threadContent)
+VALUES (1,'Example title 1','Content for thread goes here...');

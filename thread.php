@@ -1,6 +1,7 @@
 <?php
     include_once "connect.php";
-    $threadID = mysql_real_escape_string($_GET["id"]);
+    $threadID = mysql_real_escape_string($_GET["tid"]);
+    $categoryID = mysql_real_escape_string($_GET["cid"]);
     $query = "SELECT threadTitle, threadContent FROM Threads WHERE threadID=$threadID";
     $result = mysql_query($query) or die(mysql_error());
 ?>
@@ -12,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     </head>
     <body>
+        <a href="threads.php?id=<?php echo $categoryID; ?>">&laquo; Back to threads</a>
         <?php
             $row = mysql_fetch_assoc($result);
             $title = $row["threadTitle"];

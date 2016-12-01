@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     </head>
     <body>
+        <a href="index.php">&laquo; Back to Home Page</a>
         <?php
             if($numRows > 0){
                 $threads = "";
@@ -22,9 +23,9 @@
                     if(empty($categoryName)){ $categoryName = $row["categoryName"]; }
                     $threadID = $row["threadID"];
                     $title = $row["threadTitle"];
-                    $threads .= "<a href='thread.php?id=$threadID' class='thread-title'>$title</a>";
+                    $threads .= "<a href='thread.php?tid=$threadID&cid=$categoryID' class='thread-title'>$title</a>";
                 }
-                echo "<h2>$categoryName Threads | <a href='addThread.php?tid=$threadID&cid=$categoryID'>Create Thread</a></h2>";
+                echo "<h2>$categoryName Threads | <a href='addThread.php?cid=$categoryID'>Create Thread</a></h2>";
                 echo $threads;
             }else{
                 echo "<p>There are no threads to display.</p>";

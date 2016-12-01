@@ -1,5 +1,5 @@
 <?php
-    $threadID = $_GET["id"];
+    $categoryID = $_GET["cid"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +8,10 @@
         <title>Add Thread</title>
     </head>
     <body>
+        <a href="threads.php?id=<?php echo $categoryID; ?>">&laquo; Back to threads</a>
         <h2>Create Thread</h2>
         <form action="addThread_p.php" method="post" name="addThread">
-            <input type="hidden" value="<?php echo $threadID; ?>" name="threadID">
+            <input type="hidden" value="<?php echo $categoryID; ?>" name="categoryID">
             Title:
             <input type="text" name="threadTitle"><br><br>
             Content:<br>

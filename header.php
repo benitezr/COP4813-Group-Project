@@ -8,7 +8,7 @@
         //Populate the $styles array with paths to other CSS files
             if(isset($styles)){
                 foreach($styles as $path){
-                    echo "<link rel='stylesheet' type='text/css' href='$path'>";
+                    echo "<link rel='stylesheet' type='text/css' href='$path'>\n";
                 }
             }
         ?>

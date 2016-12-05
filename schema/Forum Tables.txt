@@ -9,21 +9,28 @@ CREATE TABLE Threads
 (
 threadID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 categoryID int,
+AccountID int,
 threadTitle varchar(255),
 threadContent varchar(255),
-CONSTRAINT fk_CategoryThread FOREIGN KEY (categoryID) REFERENCES Categories(categoryID)
+CONSTRAINT fk_CategoryThread FOREIGN KEY (categoryID) REFERENCES Categories(categoryID),
+CONSTRAINT fk_AccountThread FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
 );
 
 CREATE TABLE Comments
 (
 commentID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 threadID int,
+AccountID int,
 commentContent varchar(255),
-CONSTRAINT fk_ThreadComment FOREIGN KEY (threadID) REFERENCES Threads(threadID)
+CONSTRAINT fk_ThreadComment FOREIGN KEY (threadID) REFERENCES Threads(threadID),
+CONSTRAINT fk_AccountComment FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
 );
 
-INSERT INTO Categories (categoryName, categoryDesc)
-VALUES ('Category1','Testing Category1 description');
-
-INSERT INTO Threads (categoryID, threadTitle, threadContent)
-VALUES (1,'Example title 1','Content for thread goes here...');
+CREATE TABLE Account
+(
+AccountID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+AccountName varchar(30),
+AccountPassword varchar(30),
+email varchar(50),
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

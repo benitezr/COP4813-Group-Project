@@ -4,7 +4,6 @@
         header("Location: login.php"); 
         die();
     }else{
-        $username = $_SESSION["username"];
         $userID = $_SESSION["userID"];
     }
 

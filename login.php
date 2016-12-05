@@ -13,7 +13,7 @@
 <form action="login_p.php" method="post" name="login">
     Username: <input type="text" name="AccountName">
     Password: <input type="password" name="AccountPassword">
-    <input type="submit" name="submit" value="login">
+    <input type="submit" name="submit" value="Login">
 </form>
 <h2>Create Account</h2>
 <?php echo "<p>$error_C</p>"; ?>
@@ -22,6 +22,6 @@
     Password: <input type="password" name="AccountPassword"><br><br>
     Verify Password: <input type="password" name="AccountPassword_v"><br><br>
     Email: <input type="text" name="Email"><br><br>
-    <input type="submit" name="submit" value="create">
+    <input type="submit" name="submit" value="Create">
 </form>
 <?php require_once "footer.php"; ?>

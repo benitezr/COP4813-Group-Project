@@ -1,5 +1,5 @@
 <?php
-    include_once "connect.php";
+    require_once "connect.php";
     $categoryID = mysql_real_escape_string($_POST["categoryID"]);
     $threadTitle = mysql_real_escape_string(htmlspecialchars($_POST["threadTitle"]));
     $threadContent = mysql_real_escape_string(htmlspecialchars($_POST["threadContent"]));

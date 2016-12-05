@@ -24,7 +24,7 @@
         die();
     }
     //Check if username exists already
-    $query = "SELECT AccountName FROM ACCOUNT WHERE AccountName LIKE '" . $accForm["username"] . "'";
+    $query = "SELECT AccountName FROM Account WHERE AccountName LIKE '" . $accForm["username"] . "'";
     $result = mysql_query($query) or die(mysql_error());
 
     if(mysql_num_rows($result) > 0){
@@ -32,13 +32,14 @@
         die();
     }
     //Add user to database
-    $query = "INSERT INTO ACCOUNT (AccountName, AccountPassword, email) ";
+    $query = "INSERT INTO Account (AccountName, AccountPassword, email) ";
     $query = $query . "VALUES ('".$accForm["username"]."','".$accForm["password"]."','".$accForm["email"]."')";
     $result = mysql_query($query) or die(mysql_error());
-    mysql_close($db_access);
 
     require_once "createSession.php";
     $_SESSION["username"] = $accForm["username"];
+    $_SESSION["userID"] = mysql_insert_id();
+    mysql_close($db_access);
 
     header("Location: index.php");
 ?>

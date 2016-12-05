@@ -3,6 +3,8 @@
     if(!isset($_SESSION["username"])){ 
         header("Location: login.php");
         die();
+    }else{
+        $userID = $_SESSION["userID"];
     }
 
     require_once "connect.php";    
@@ -15,8 +17,8 @@
         die();
     }
 
-    $query = "INSERT INTO Comments (threadID, commentContent) ";
-    $query = $query . "VALUES ('$threadID','$content')";
+    $query = "INSERT INTO Comments (threadID, AccountID, commentContent) ";
+    $query = $query . "VALUES ('$threadID','$userID','$content')";
     $result = mysql_query($query) or die(mysql_error());
     mysql_close($db_access);
 

@@ -2,7 +2,8 @@
     require_once "connect.php";
     $threadID = mysql_real_escape_string($_GET["tid"]);
     $categoryID = mysql_real_escape_string($_GET["cid"]);
-    $query = "SELECT threadTitle, threadContent FROM Threads WHERE threadID=$threadID";
+    $query = "SELECT Threads.threadTitle AS threadTitle, Threads.threadContent AS threadContent, Account.AccountName AS username FROM Threads, Account ";
+    $query = $query . "WHERE Threads.threadID=$threadID AND Account.AccountID = Threads.AccountID";
     $result = mysql_query($query) or die(mysql_error());
 
     $pageTitle = "Thread";
@@ -11,19 +12,22 @@
 <a href="threads.php?id=<?php echo $categoryID; ?>">&laquo; Back to threads</a>
 <?php
     $row = mysql_fetch_assoc($result);
+    $username = $row["username"];
     $title = $row["threadTitle"];
     $content = $row["threadContent"];
-    echo "<h2>$title</h2>";
+    echo "<h2>$title</h2><h3>Posted by: $username</h3>";
     echo "<p>$content</p><hr><h2>Comments</h2>";
 
-    $query = "SELECT commentContent FROM Comments WHERE threadID=$threadID";
+    $query = "SELECT Comments.commentContent AS commentContent, Account.AccountName AS username FROM Comments, Account ";
+    $query = $query . "WHERE Comments.threadID=$threadID AND Account.AccountID = Comments.AccountID";
     $result = mysql_query($query) or die(mysql_error());
     $numRows = mysql_num_rows($result);
 
     if($numRows > 0){
         while($row = mysql_fetch_assoc($result)){
+            $username_c = $row["username"];
             $comment = $row["commentContent"];
-            echo "<p>guest: $comment</p>";
+            echo "<p>$username_c: $comment</p>";
         }
     }else{
         echo "<p>No one has commented yet.</p>";

@@ -1,13 +1,13 @@
 <?php
     require_once "createSession.php";
-    if(isset($_SESSION["username"])){ header("Location: index.php"); }
+    if(isset($_SESSION["username"])){ header("Location: forums.php"); }
 
     $error_L = (isset($_GET["error_L"])) ? "Error: " . $_GET["error_L"] : "";
     $error_C = (isset($_GET["error_C"])) ? "Error: " . $_GET["error_C"] : "";
     $pageTitle = "Login";
     require_once "header.php";
 ?>
-<a href="index.php">&laquo; Back to Home Page</a>
+<a href="forums.php">&laquo; Back to Home Page</a>
 <h2>Login</h2>
 <?php echo "<p>$error_L</p>"; ?>
 <form action="login_p.php" method="post" name="login">

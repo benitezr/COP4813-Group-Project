@@ -14,7 +14,7 @@
     $pageTitle = "Threads";
     require_once "header.php";
 ?>
-<a href="index.php">&laquo; Back to Home Page</a>
+<a href="forums.php">&laquo; Back to Home Page</a>
 <?php
     echo "<h2>$categoryName Threads | <a href='addThread.php?cid=$categoryID'>Create Thread</a></h2>";
     if($numRows > 0){

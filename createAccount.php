@@ -41,5 +41,5 @@
     $_SESSION["userID"] = mysql_insert_id();
     mysql_close($db_access);
 
-    header("Location: index.php");
+    header("Location: forums.php");
 ?>

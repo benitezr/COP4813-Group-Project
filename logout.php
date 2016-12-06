@@ -1,4 +1,4 @@
 <?php
     require_once "destroySession.php";
-    header("Location: index.php");
+    header("Location: forums.php");
 ?>

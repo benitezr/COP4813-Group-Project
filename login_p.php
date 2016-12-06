@@ -12,7 +12,7 @@
         require_once "createSession.php";
         $_SESSION["username"] = $row["AccountName"];
         $_SESSION["userID"] = $row["AccountID"];
-        header("Location: index.php");
+        header("Location: forums.php");
     }else{
         header("Location: login.php?error_L=Wrong username or password.");
     }
